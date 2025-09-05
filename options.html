@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Opciones ft_script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+        .implemented {
+            color: #4CAF50; /* verde */
+            font-weight: bold;
+        }
+        .partial {
+            color: #FFC107; /* amarillo */
+            font-weight: bold;
+        }
+        .not-implemented {
+            color: #F44336; /* rojo */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Opciones del comando <code>ft_script</code></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Opción</th>
+                <th>Estado</th>
+                <th>Comentarios / Qué falta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-I, --log-in &lt;file&gt;</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Solo graba stdin; falta manejo completo de errores, append/truncate y compatibilidad con -B.</td>
+            </tr>
+            <tr>
+                <td>-O, --log-out &lt;file&gt;</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Graba stdout principal; falta flush completo, errores de apertura, append/truncate y combinación con -B.</td>
+            </tr>
+            <tr>
+                <td>-B, --log-io &lt;file&gt;</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Escribe stdin y stdout; falta flush, manejo de errores, append/truncate y compatibilidad con -O/-I.</td>
+            </tr>
+            <tr>
+                <td>-T, --log-timing &lt;file&gt;</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Sólo escribe fecha inicial; falta registrar temporización de cada input/output y manejo de errores.</td>
+            </tr>
+            <tr>
+                <td>-t[&lt;file&gt;], --timing[=&lt;file&gt;]</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Alias de -T; falta redirección al archivo adecuado, temporización real y manejo de errores.</td>
+            </tr>
+            <tr>
+                <td>-m, --logging-format &lt;name&gt;</td>
+                <td class="not-implemented">❌ Sin implementar</td>
+                <td>Falta lógica para 'classic' o 'advanced'.</td>
+            </tr>
+            <tr>
+                <td>-a, --append</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Funciona en parte; falta integración completa con todos los archivos de log (-O, -I, -B).</td>
+            </tr>
+            <tr>
+                <td>-c, --command &lt;command&gt;</td>
+                <td class="implemented">✅ Implementada</td>
+                <td>Ejecuta un comando en lugar del shell interactivo.</td>
+            </tr>
+            <tr>
+                <td>-e, --return</td>
+                <td class="implemented">✅ Implementada</td>
+                <td>Devuelve código de salida del proceso hijo.</td>
+            </tr>
+            <tr>
+                <td>-f, --flush</td>
+                <td class="partial">⚠️ Parcial</td>
+                <td>Se usa en algunos writes; falta asegurar que todos los archivos abiertos lo respeten siempre.</td>
+            </tr>
+            <tr>
+                <td>--force</td>
+                <td class="not-implemented">❌ Sin implementar</td>
+                <td>No hace nada; falta permitir sobrescribir enlaces simbólicos sin preguntar.</td>
+            </tr>
+            <tr>
+                <td>-E, --echo &lt;when&gt;</td>
+                <td class="not-implemented">❌ Sin implementar</td>
+                <td>No hay lógica para controlar echo de la entrada (auto, always, never).</td>
+            </tr>
+            <tr>
+                <td>-o, --output-limit &lt;size&gt;</td>
+                <td class="not-implemented">❌ Sin implementar</td>
+                <td>No hay límite de tamaño implementado en los archivos de salida.</td>
+            </tr>
+            <tr>
+                <td>-q, --quiet</td>
+                <td class="implemented">✅ Implementada</td>
+                <td>Impide que la salida vaya a stdout.</td>
+            </tr>
+            <tr>
+                <td>-h, --help</td>
+                <td class="implemented">✅ Implementada</td>
+                <td>Muestra el mensaje de ayuda y sale.</td>
+            </tr>
+            <tr>
+                <td>-V, --version</td>
+                <td class="implemented">✅ Implementada</td>
+                <td>Muestra la versión y sale.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

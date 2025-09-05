@@ -1,0 +1,26 @@
+Debes recodificar el comando script con las opciones, excepto las opciones -k y -t.
+$> man script
+
+• Este proyecto solo será revisado por humanos. Eres libre de organizar y nombrar
+tus archivos como quieras, siempre y cuando respetes las siguientes instrucciones.
+• El ejecutable debe llamarse ft_script
+• Debes programar en C y entregar un Makefile.
+• Si eres listo y usas tu biblioteca libft, debes copiar las fuentes y el Makefile
+asociado en una carpeta llamada libft que deberá estar ubicada en la raíz de tu
+repositorio a entregar. Tu Makefile deberá compilar la biblioteca, llamando a su
+Makefile, y luego compilar tu proyecto.
+• Debes gestionar los errores de manera razonable. Tu programa no debe cerrarse
+inesperadamente (Segmentation fault, etc...).
+
+• Solo puedes usar llamadas al sistema (es decir, lo que aparece en la sección 2
+de los manuales del sistema).
+Recordatorio: malloc no es una llamada al sistema.
+Hay una excepción válida: el uso de ctime().
+• Puedes publicar tus preguntas en el foro, Jabber, IRC, Slack...
+
+BONUS
+Añadir las opciones -k y -t
+
+
+
+Funcionamiento de la funcion script
