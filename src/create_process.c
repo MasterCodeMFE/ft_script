@@ -20,11 +20,6 @@ int spawn_child_process(t_script_context *contex)
 
     if (contex->child_pid == 0) // HIJO
     {
-        signal(SIGINT, SIG_DFL);
-        signal(SIGQUIT, SIG_DFL);
-        signal(SIGTSTP, SIG_DFL);
-        signal(SIGWINCH, SIG_DFL);
-        
         setsid(); // Nueva sesión
         if (ioctl(contex->fd_slave, TIOCSCTTY, 0) == -1)
             perror("ioctl TIOCSCTTY hijo");
@@ -62,9 +57,6 @@ int spawn_child_process(t_script_context *contex)
     {
         // Cerrar extremo esclavo en el padre
         close(contex->fd_slave);
-
-        // NO ignorar las señales, configurar manejadores apropiados
-        setup_signal_handlers();
     }
 
     return 0;

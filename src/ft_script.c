@@ -103,9 +103,6 @@ int ft_script(char *file, char *shell, char **env, t_options *opt)
         run_principal_loop(&contex);
     disable_raw_mode(&orig_termios);
 
-    // Restaurar manejadores de señales
-    restore_signal_handlers();
-
     // si -e está activado, esperar al hijo y obtener exit status
     if (contex.options->return_code)
         waitpid(contex.child_pid, &contex.child_status, 0);

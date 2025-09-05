@@ -22,8 +22,7 @@ SRCS = src/main.c \
 	   src/print_info.c \
 	   src/create_process.c \
 	   src/process_inout_output.c \
-	   src/print_version_help.c \
-	   src/signals.c
+	   src/print_version_help.c
 
 # Objetos (se guardan en objs/, sin subdirectorios)
 OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
